@@ -4,7 +4,7 @@ import uvicorn
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
-from domain.client_json import GeocacheRequest
+from domain.client_json import GenerateRequest
 from service import image_service
 from service.image_service import ImageService
 from service.location_service import LocationService
@@ -31,8 +31,8 @@ logging.basicConfig(format=FORMAT)
 logger = logging.getLogger('chapi')
 
 
-@app.post("/geocache")
-async def get_image_blend(request: GeocacheRequest):
+@app.post("/generate")
+async def get_image_blend(request: GenerateRequest):
     try:
         lat, long = location_service.get_location(float(request.lat), float(request.long))
         return image_service.get_image_at(long, lat)

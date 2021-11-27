@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
 
-class GeocacheRequest(BaseModel):
+class GenerateRequest(BaseModel):
     long: str
     lat: str

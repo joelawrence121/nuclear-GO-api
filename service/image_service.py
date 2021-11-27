@@ -6,8 +6,9 @@ import requests
 
 
 class ImageService(object):
+    radius = 100
     style_image = "fiery-wasteland"
-    google_street_view_ep = "https://maps.googleapis.com/maps/api/streetview?location={lat},{long}&size=456x456&key={key}&radius=100"
+    google_street_view_ep = "https://maps.googleapis.com/maps/api/streetview?location={lat},{long}&size=456x456&key={key}&radius={radius}"
 
     def __init__(self):
         config = configparser.ConfigParser()
@@ -18,7 +19,7 @@ class ImageService(object):
 
     def get_image_at(self, long, lat):
         r = requests.get(
-            self.google_street_view_ep.format(lat=lat, long=long, key=self.google_api_key)
+            self.google_street_view_ep.format(lat=lat, long=long, radius=str(self.radius), key=self.google_api_key)
         )
         img_uuid = str(uuid.uuid4())
         with open("images/fetched/image" + img_uuid + ".jpg", 'wb') as img:
