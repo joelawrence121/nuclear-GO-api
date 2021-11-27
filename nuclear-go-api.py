@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
 
 from domain.client_json import GeocacheRequest
-from service import item_service, image_service
+from service import image_service
 from service.image_service import ImageService
 from service.location_service import LocationService
 
@@ -34,8 +34,8 @@ logger = logging.getLogger('chapi')
 @app.post("/geocache")
 async def get_image_blend(request: GeocacheRequest):
     try:
-        lat, long = location_service.get_location(float(request.lat), float(request.lat))
-        return image_service.get_image_at(request.long, request.lat)
+        lat, long = location_service.get_location(float(request.lat), float(request.long))
+        return image_service.get_image_at(long, lat)
     except RuntimeError as e:
         logger.warning(e)
 

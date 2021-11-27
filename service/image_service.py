@@ -6,8 +6,8 @@ import requests
 
 
 class ImageService(object):
-    style_image = "green-cityscape"
-    google_street_view_ep = "https://maps.googleapis.com/maps/api/streetview?location={lat},{long}&size=456x456&key={key}"
+    style_image = "fiery-wasteland"
+    google_street_view_ep = "https://maps.googleapis.com/maps/api/streetview?location={lat},{long}&size=456x456&key={key}&radius=100"
 
     def __init__(self):
         config = configparser.ConfigParser()
