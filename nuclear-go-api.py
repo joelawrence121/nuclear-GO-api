@@ -7,9 +7,11 @@ from starlette.middleware.cors import CORSMiddleware
 from domain.client_json import GeocacheRequest
 from service import item_service, image_service
 from service.image_service import ImageService
+from service.location_service import LocationService
 
 app = FastAPI()
 image_service = ImageService()
+location_service = LocationService()
 
 origins = [
     "http://localhost",
@@ -32,11 +34,8 @@ logger = logging.getLogger('chapi')
 @app.post("/geocache")
 async def get_image_blend(request: GeocacheRequest):
     try:
-        # TODO
-        # TODO get long,lat in viscinity
-        item = item_service.get_random_item()
-        # TODO get image of that location
-        return image_service.get_blended_image(request.image)
+        lat, long = location_service.get_location(float(request.lat), float(request.lat))
+        return image_service.get_image_at(request.long, request.lat)
     except RuntimeError as e:
         logger.warning(e)
 
