@@ -4,7 +4,7 @@ Backend application for the nuclear GO **GreatUniHack Hackathon submission**.
 
 Takes incoming request of `lat, long` eg: 53.480759, -2.242631 (Manchester)
 
-Returns varying images around the given area  melded with an apocalyptic style using the [Deep AI API](https://deepai.org/machine-learning-model/fast-style-transfer) and [StreetView API](https://developers.google.com/maps/documentation/streetview/overview).
+Returns images around the given area  melded with an apocalyptic style using the [Deep AI API](https://deepai.org/machine-learning-model/fast-style-transfer) and [StreetView API](https://developers.google.com/maps/documentation/streetview/overview).
 
 ![image5004cfac-53c0-4ec7-9c14-7b96f7e57f8d](https://user-images.githubusercontent.com/32837058/143691348-7f3f3ff2-e299-4e5f-95c5-8b2c6f31d201.jpg)
 ![image0b95e3b3-2dca-4619-842b-5fb6a0533dd9](https://user-images.githubusercontent.com/32837058/143697278-5ca90660-8dfb-4c24-a5e6-89562c7be18e.jpg)
